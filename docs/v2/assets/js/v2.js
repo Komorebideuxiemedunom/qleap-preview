@@ -58,8 +58,9 @@
   /* sections-étapes */
   const steps = $$('[data-step]');
   steps.forEach((s, i) => (s.dataset.stepId = s.dataset.stepId || 'step:' + location.pathname + ':' + i));
+  let io = null;
   if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((ens) => ens.forEach((en) => {
+    io = new IntersectionObserver((ens) => ens.forEach((en) => {
       if (en.isIntersecting && !en.target.hasAttribute('data-step-on-action')) { add(en.target.dataset.step, en.target.dataset.line, en.target.dataset.stepId); io.unobserve(en.target); }
     }), { rootMargin: '0px 0px -45% 0px', threshold: 0 });
     steps.forEach((s) => io.observe(s));
@@ -76,6 +77,7 @@
     try { if (off) { sessionStorage.removeItem(KEY); sessionStorage.setItem(OFF, '1'); } else sessionStorage.removeItem(OFF); } catch {}
     if (off) log = [];
     syncStop(); draw(false);
+    if (!off && io) steps.forEach((st) => { io.unobserve(st); io.observe(st); });
   });
 
   /* runner mobile */
@@ -153,7 +155,7 @@
       target = p;
       caps.forEach((c) => c.classList.toggle('on', p >= +c.dataset.from && p < +c.dataset.to));
       barS && (barS.style.width = p * 100 + '%');
-      if (p > 0.2 && v.readyState >= 2) add('And', 'you watch Q-Bot pass a LuxTrust 2FA', 'qbot');
+      if (p > 0.2 && v.readyState >= 2) add('And', 'you scroll through the Q-Bot LuxTrust demo', 'qbot');
       if (!raf) raf = requestAnimationFrame(tick);
     };
     addEventListener('scroll', upd, { passive: true });
@@ -218,10 +220,9 @@
   const finalStep = $('[data-step-on-action]');
   const passFinal = () => finalStep && add(finalStep.dataset.step, finalStep.dataset.line, finalStep.dataset.stepId);
   send?.addEventListener('click', passFinal);
-  $('[data-copy-scenario]')?.addEventListener('click', passFinal);
   $('[data-copy-scenario]')?.addEventListener('click', async (e) => {
     const b = e.currentTarget;
-    try { await navigator.clipboard.writeText(compile()); b.textContent = 'Copied'; } catch { b.textContent = 'Copy failed: select the text'; }
+    try { await navigator.clipboard.writeText(compile()); b.textContent = 'Copied'; passFinal(); } catch { b.textContent = 'Copy failed: select the text'; }
     setTimeout(() => (b.textContent = 'Copy scenario'), 2200);
   });
   const rcta = $('.r-cta');
