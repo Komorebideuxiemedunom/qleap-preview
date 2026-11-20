@@ -1,4 +1,6 @@
-# Q-LEAP, proposition de refonte du site (locale)
+# Q-LEAP, proposition de refonte du site
+
+Aperçu en ligne (noindex, robots.txt Disallow) : https://komorebideuxiemedunom.github.io/qleap-preview/ (V1) et https://komorebideuxiemedunom.github.io/qleap-preview/v2/ (V2). Dépôt public : https://github.com/Komorebideuxiemedunom/qleap-preview (pages servies depuis docs/).
 
 Proposition complète de refonte de q-leap.eu, réalisée le 20/11/2026 par Claude et Codex en binôme, validée par le conseil des 5 (contradicteur, premiers principes, expansionniste, outsider, exécutant) à chaque passage : préprod, Gate 1 (fin de prod), Gate 2 (postprod).
 Aucun dépôt ni site en ligne Q-Leap n'a été modifié. Pas de git ici.
@@ -46,3 +48,9 @@ Décisions tranchées contre un avis : Q-Guard reste violet (#4A3BEB est dans la
 2. Ressources ISTQB : quiz Advanced, glossaire FR/EN.
 3. Offre « European Accessibility Act » : auto-diagnostic + audit à prix fixe, pages FR et DE.
 4. Version FR complète, fiches formation et offres d'emploi migrées, politique de confidentialité.
+
+## V2 « Test run » (/v2/)
+Itération qui change tout en gardant les demandes de base. La visite est un test : un panneau bleu fixe (barre basse sur mobile) écrit les parties du site lues comme un scénario Given/When/Then, gardé dans l'onglet (sessionStorage), rien n'est envoyé, boutons Clear et Stop logging. Aucune donnée d'aide technique (clavier, mouvement réduit) n'est notée. Les étapes à venir sont affichées « en attente » ; l'étape finale ne passe qu'après une action réelle (préparer le mail, copie réussie).
+Accueil : portes par profil en panneau des départs (lettres défilantes), matrice de couverture services × étapes qui se remplit, accessibilité (EAA), vidéo démo Q-Bot réelle (MyGuichet.lu + LuxTrust Mobile) pilotée par le scroll, Q-Guard, sessions de formation en tableau des départs avec « Book a seat », scénario final envoyable à Q-Leap (mailto, porte choisie dans l'objet) ou copiable.
+Sources : pages-v2/, partials-v2/, docs/v2/assets/. `python3 build.py` génère V1 puis V2.
+Validation V2 : préprod (5 conseillers + Codex : concept fusionné de premiers principes « votre parcours est le test », outsider « signalétique d'aéroport », expansionniste « diagnostic », Codex « matrice de couverture ») ; gate : 5 validés avec réserves, Codex refusé puis validé avec réserves après corrections. axe-core 0 violation (12 pages × 2 tailles, V1 et V2), 0 débordement, tests fonctionnels OK, scrub vidéo vérifié en ligne.

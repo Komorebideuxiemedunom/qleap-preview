@@ -77,6 +77,7 @@
     try { if (off) { sessionStorage.removeItem(KEY); sessionStorage.setItem(OFF, '1'); } else sessionStorage.removeItem(OFF); } catch {}
     if (off) log = [];
     syncStop(); draw(false);
+    if (!off && feat) add('When', 'you open ' + feat, 'page:' + location.pathname);
     if (!off && io) steps.forEach((st) => { io.unobserve(st); io.observe(st); });
   });
 
