@@ -12,35 +12,45 @@
 
   /* ---------- journal ---------- */
   let log = [];
-  try { log = JSON.parse(sessionStorage.getItem(KEY) || '[]'); } catch { log = []; }
-  const save = () => { try { sessionStorage.setItem(KEY, JSON.stringify(log.slice(-40))); } catch {} };
+  const OFF = 'qleap-v2-off';
+  let off = false;
+  try { off = sessionStorage.getItem(OFF) === '1'; log = off ? [] : JSON.parse(sessionStorage.getItem(KEY) || '[]').slice(-40); } catch { log = []; }
+  const save = () => { if (off) return; try { sessionStorage.setItem(KEY, JSON.stringify(log)); } catch {} };
   const ul = $('[data-r-log]'), empty = $('[data-r-empty]');
   const countEl = $('[data-r-count]'), countM = $('[data-r-count-m]'), stepsEl = $('[data-r-steps]'), bar = $('[data-r-bar]'), cur = $('[data-r-current]');
   const pad = (n) => String(n).padStart(2, '0');
   const total = () => Math.max(7, $$('[data-step]').length);
   const draw = (fresh) => {
     if (!ul) return;
-    ul.innerHTML = log.map((e, i) => `<li class="${fresh && i === log.length - 1 ? 'is-new' : ''}"><i>${esc(e.k)}</i><span>${esc(e.t)}</span></li>`).join('');
-    ul.scrollTop = ul.scrollHeight;
-    if (empty) empty.hidden = log.length > 0;
-    countEl && (countEl.textContent = pad(log.length));
-    countM && (countM.textContent = pad(log.length));
-    stepsEl && (stepsEl.textContent = log.length + (log.length === 1 ? ' step' : ' steps'));
     const pageSteps = $$('[data-step]');
-    const seen = pageSteps.filter((s) => log.some((e) => e.id === s.dataset.stepId)).length;
-    bar && bar.style.setProperty('--p', (pageSteps.length ? (seen / pageSteps.length) * 100 : 0) + '%');
-    if (cur && log.length) cur.textContent = log[log.length - 1].t.slice(0, 42);
+    const done = (st) => log.some((e) => e.id === st.dataset.stepId);
+    const seen = pageSteps.filter(done).length;
+    const pending = pageSteps.filter((st) => !done(st)).map((st) => ({ k: st.dataset.step, t: st.dataset.line }));
+    const shown = log.slice(-8), hidden = log.length - shown.length;
+    ul.innerHTML = (hidden > 0 ? `<li class="r-more"><i>+${hidden}</i><span>earlier steps, in the scenario below</span></li>` : '') +
+      shown.map((e, i) => `<li class="${fresh && i === shown.length - 1 ? 'is-new' : ''}"><i>${esc(e.k)}</i><span>${esc(e.t)}</span></li>`).join('') +
+      pending.slice(0, 7).map((e) => `<li class="is-pending"><i>${esc(e.k)}</i><span>${esc(e.t)}</span></li>`).join('');
+    const lastDone = ul.querySelector('li:not(.is-pending):last-of-type');
+    lastDone && lastDone.scrollIntoView && (ul.scrollTop = Math.max(0, lastDone.offsetTop - ul.clientHeight / 2));
+    if (empty) empty.hidden = log.length > 0;
+    const t = pageSteps.length || 1;
+    countEl && (countEl.textContent = pad(seen));
+    countM && (countM.textContent = pad(seen) + '/' + pad(pageSteps.length));
+    stepsEl && (stepsEl.textContent = 'this page: ' + seen + ' of ' + pageSteps.length);
+    bar && bar.style.setProperty('--p', (seen / t) * 100 + '%');
     document.dispatchEvent(new CustomEvent('qrun:change'));
   };
   const add = (k, t, id) => {
     id = id || k + ':' + t;
-    if (log.some((e) => e.id === id)) return;
+    if (off || log.some((e) => e.id === id)) return;
     log.push({ k, t, id });
+    if (log.length > 40) log = log.slice(-40);
     save(); draw(true);
   };
   window.QRUN = { add, get: () => log.slice() };
   draw(false);
 
+  /* (runner déclaré plus bas) */
   /* étape d'une page intérieure : on note la page */
   const feat = document.body.dataset.feature;
   if (feat) add('When', 'you open ' + feat, 'page:' + location.pathname);
@@ -50,20 +60,27 @@
   steps.forEach((s, i) => (s.dataset.stepId = s.dataset.stepId || 'step:' + location.pathname + ':' + i));
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((ens) => ens.forEach((en) => {
-      if (en.isIntersecting) { add(en.target.dataset.step, en.target.dataset.line, en.target.dataset.stepId); io.unobserve(en.target); }
-    }), { threshold: 0.35 });
+      if (en.isIntersecting && !en.target.hasAttribute('data-step-on-action')) { add(en.target.dataset.step, en.target.dataset.line, en.target.dataset.stepId); io.unobserve(en.target); }
+    }), { rootMargin: '0px 0px -45% 0px', threshold: 0 });
     steps.forEach((s) => io.observe(s));
   }
   /* portes choisies */
   $$('[data-gate]').forEach((a) => a.addEventListener('click', () => add('And', 'you choose the gate "' + a.dataset.gate + '"', 'gate:' + a.dataset.gate)));
   /* clavier, mouvement réduit */
-  addEventListener('keydown', (e) => { if (e.key === 'Tab') add('And', 'you navigate with the keyboard', 'kbd'); }, { once: false });
-  if (!motion) add('And', 'you prefer reduced motion', 'rm');
   /* effacer */
-  $('[data-r-clear]')?.addEventListener('click', () => { log = []; save(); draw(false); document.dispatchEvent(new CustomEvent('qrun:change')); });
+  $('[data-r-clear]')?.addEventListener('click', () => { log = []; try { sessionStorage.removeItem(KEY); } catch {} draw(false); });
+  const stopBtn = $('[data-r-stop]');
+  const syncStop = () => { if (stopBtn) stopBtn.textContent = off ? 'Resume logging' : 'Stop logging'; runner?.classList.toggle('is-off', off); };
+  stopBtn?.addEventListener('click', () => {
+    off = !off;
+    try { if (off) { sessionStorage.removeItem(KEY); sessionStorage.setItem(OFF, '1'); } else sessionStorage.removeItem(OFF); } catch {}
+    if (off) log = [];
+    syncStop(); draw(false);
+  });
 
   /* runner mobile */
   const runner = $('[data-runner]'), tgl = $('[data-r-toggle]');
+  setTimeout(() => syncStop && syncStop(), 0);
   tgl?.addEventListener('click', () => {
     const open = !runner.classList.contains('is-open');
     runner.classList.toggle('is-open', open);
@@ -117,10 +134,10 @@
   $$('[data-scrub]').forEach((sec) => {
     const v = $('video', sec), caps = $$('[data-cap]', sec), barS = $('.scrub-bar i', sec);
     const small = () => innerWidth < 1024;
-    if (!motion || small()) {
-      sec.classList.add('is-static'); v.controls = true; v.preload = 'metadata';
-      return;
-    }
+    const goStatic = () => { sec.classList.add('is-static'); v.controls = true; v.preload = 'metadata'; };
+    if (!motion || small()) { goStatic(); return; }
+    v.addEventListener('error', goStatic, true);
+    addEventListener('resize', () => { if (small()) goStatic(); });
     v.preload = 'auto'; v.muted = true; v.pause();
     let target = 0, now = 0, raf = 0;
     const tick = () => {
@@ -130,12 +147,13 @@
       raf = now !== target ? requestAnimationFrame(tick) : 0;
     };
     const upd = () => {
+      if (sec.classList.contains('is-static')) return;
       const r = sec.getBoundingClientRect();
       const p = clamp(-r.top / (r.height - innerHeight));
       target = p;
       caps.forEach((c) => c.classList.toggle('on', p >= +c.dataset.from && p < +c.dataset.to));
       barS && (barS.style.width = p * 100 + '%');
-      if (p > 0.2) add('And', 'you watch Q-Bot pass a LuxTrust 2FA', 'qbot');
+      if (p > 0.2 && v.readyState >= 2) add('And', 'you watch Q-Bot pass a LuxTrust 2FA', 'qbot');
       if (!raf) raf = requestAnimationFrame(tick);
     };
     addEventListener('scroll', upd, { passive: true });
@@ -192,9 +210,22 @@
     if (send) {
       let body = 'Hello Q-Leap,\n\nHere is what I looked at on your site:\n\n' + txt + '\n\nWhat we need:\n\nName:\nCompany:';
       if (body.length > 1800) body = body.slice(0, 1800) + '\n[...]';
-      send.href = 'mailto:contact@q-leap.eu?subject=' + encodeURIComponent('My visit to q-leap.eu') + '&body=' + encodeURIComponent(body);
+      const gate = log.find((e) => e.id && e.id.startsWith('gate:'));
+      const subject = 'My visit to q-leap.eu' + (gate ? ': ' + gate.id.slice(5) : '');
+      send.href = 'mailto:contact@q-leap.eu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     }
   };
+  const finalStep = $('[data-step-on-action]');
+  const passFinal = () => finalStep && add(finalStep.dataset.step, finalStep.dataset.line, finalStep.dataset.stepId);
+  send?.addEventListener('click', passFinal);
+  $('[data-copy-scenario]')?.addEventListener('click', passFinal);
+  $('[data-copy-scenario]')?.addEventListener('click', async (e) => {
+    const b = e.currentTarget;
+    try { await navigator.clipboard.writeText(compile()); b.textContent = 'Copied'; } catch { b.textContent = 'Copy failed: select the text'; }
+    setTimeout(() => (b.textContent = 'Copy scenario'), 2200);
+  });
+  const rcta = $('.r-cta');
+  document.addEventListener('qrun:change', () => { if (rcta && log.length >= 7) rcta.firstChild.textContent = 'Send your scenario '; });
   document.addEventListener('qrun:change', renderScenario);
   renderScenario();
 })();
