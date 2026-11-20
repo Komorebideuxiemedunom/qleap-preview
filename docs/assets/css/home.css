@@ -220,3 +220,5 @@ html:not(.motion) .issue{--s:1}
 .reqs--fail li{transition:opacity .3s}
 .reqs--fail li.is-pending b{color:#c9ced6}
 .reqs--fail li.is-pending{color:#c9ced6}
+.stage-inner{overflow:hidden}
+.story{overflow-x:clip}
