@@ -286,3 +286,10 @@ a.rowlink:hover h3{color:var(--blue-ink)}
 .r-intro{font-size:.8125rem;line-height:1.45;margin:12px 0 0;color:#fff}
 .jobs-board .b-row a.b-stat{background:#fff;color:#000;border-color:#fff;font-size:.8125rem;padding:10px 16px;text-decoration:none}
 .jobs-board .b-row a.b-stat:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* Les photos de contenu restent lisibles sur les écrans courts et mobiles. */
+.photo{max-height:min(70vh,640px)}
+
+/* Finition visuelle (20/11) */
+@media (max-width:1023px){.runner .r-intro{display:none}.runner.is-open .r-intro{display:block;margin:0 0 12px}}
+.board+p,.board+.caption{margin-top:16px}

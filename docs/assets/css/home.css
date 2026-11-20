@@ -222,3 +222,7 @@ html:not(.motion) .issue{--s:1}
 .reqs--fail li.is-pending{color:#c9ced6}
 .stage-inner{overflow:hidden}
 .story{overflow-x:clip}
+
+/* Finition visuelle (20/11) : le bouton vidéo suit la vidéo au lieu de flotter dans le coin */
+.guard-media{flex-direction:column;justify-content:center;gap:16px}
+.guard-media .vid-toggle{position:static;align-self:flex-start}
