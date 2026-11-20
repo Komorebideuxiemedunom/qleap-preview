@@ -61,7 +61,10 @@ def cta(meta):
     e, t, h, b = CTA.get(key, CTA["default"])
     return dict(ctaEyebrow=e, ctaTitle=t, ctaHref=h, ctaBtn=b)
 
-def build():
+def build(PAGES=PAGES, PARTIALS_DIR=None, prefix=""):
+    global PARTIALS
+    saved = PARTIALS
+    if PARTIALS_DIR: PARTIALS = PARTIALS_DIR
     n = 0
     for f in sorted(PAGES.glob("*.html")):
         raw = f.read_text()
@@ -76,20 +79,26 @@ def build():
         page = partial("layout.html",
             title=html.escape(meta["title"]), desc=html.escape(meta.get("desc", "")),
             canonical="https://q-leap.eu/en/" + meta.get("path", ""),
-            css=css, js=js, bodyclass=meta.get("bodyClass", ""),
+            css=css, js=js, bodyclass=meta.get("bodyClass", ""), feature=html.escape(meta.get("feature", "")),
             hdrclass="on-dark" if meta.get("darkHero") else "",
             header=partial("header.html", logo=svg("wordmark", "", "Q-LEAP, home"), nav=nav_items(active), panel=panel_items(active)),
+            topbar=partial("topbar.html", logo=svg("wordmark", "", "Q-LEAP, home"), nav=nav_items(active)) if (PARTIALS / "topbar.html").exists() else "",
             main=body,
             footer=expand(partial("footer.html", **cta(meta))))
-        dest = OUT / meta.get("path", "") / "index.html" if meta.get("path") != "404" else OUT / "404.html"
+        dest = OUT / prefix / meta.get("path", "") / "index.html" if meta.get("path") != "404" else OUT / prefix / "404.html"
         dest.parent.mkdir(parents=True, exist_ok=True)
+        if prefix:
+            page = re.sub(r'((?:href|src|poster|data-src|content)=")/(?!/|assets/|' + prefix + r'/)', r"\1/" + prefix + "/", page)
         depth = len(dest.relative_to(OUT).parts) - 1
         rel = "../" * depth or "./"
         page = re.sub(r'((?:href|src|poster|data-src|content)=")/(?!/)', r"\1" + rel, page)
         page = page.replace("<head>", f"<head>\n<script>window.QBASE='{rel}'</script>", 1)
         dest.write_text(page)
         n += 1
-    print(f"{n} pages générées dans {OUT}")
+    PARTIALS = saved
+    print(f"{n} pages générées dans {OUT / prefix}")
 
 if __name__ == "__main__":
     build()
+    if (ROOT / "pages-v2").exists():
+        build(ROOT / "pages-v2", ROOT / "partials-v2", "v2")

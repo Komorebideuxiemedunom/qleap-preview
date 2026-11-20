@@ -1,0 +1,57 @@
+<!--meta {"title": "Contact Q-Leap | Software testing, training, careers", "desc": "Tell us what you need tested, which certification you want, or why you want to join. Q-Leap, Bertrange, Luxembourg.", "path": "contact/", "nav": "contact", "js": ["/assets/js/contact.js"], "feature": "Contact"} -->
+
+<link rel="stylesheet" href="/v2/assets/css/v2-pages.css">
+<section class="feature"><div class="wrap"><ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Contact</li></ol><p class="lbl">Feature</p><h1 class="big">Contact</h1><p class="lead">One question first, so the right person answers. A test manager for projects, the training team for courses, a team lead for applications.</p><ol class="gherkin"><li><b>Given</b><span>you want to reach Q-Leap</span></li><li><b>When</b><span>you choose your reason for writing</span></li><li><b>Then</b><span>you can prepare an email</span></li></ol></div></section>
+
+<section class="step --flush" data-step="When" data-line="you choose your reason for writing">
+  <div class="wrap grid"><div class="step-h"><span class="kw">When</span><span class="idx">01 / 02</span></div>
+    <form class="contact-form" data-contact style="grid-column:1/8" novalidate>
+      <fieldset class="field" style="border:0;padding:0;margin:0 0 40px">
+        <legend class="lbl" style="margin-bottom:16px">I would like to</legend>
+        <div class="choice">
+          <label><input type="radio" name="intent" value="project" checked><span>Have software tested</span></label>
+          <label><input type="radio" name="intent" value="training"><span>Book a training</span></label>
+          <label><input type="radio" name="intent" value="product"><span>See Q-Bot or Q-Guard</span></label>
+          <label><input type="radio" name="intent" value="job"><span>Join Q-Leap</span></label>
+        </div>
+      </fieldset>
+      <div class="field" style="margin-bottom:28px">
+        <label for="c-name">Your name</label>
+        <input id="c-name" name="name" autocomplete="name">
+      </div>
+      <div class="field" style="margin-bottom:28px">
+        <label for="c-org">Company or organisation</label>
+        <input id="c-org" name="org" autocomplete="organization">
+      </div>
+      <div class="field" style="margin-bottom:36px">
+        <label for="c-msg" data-msg-label>What should we test, and by when?</label>
+        <textarea id="c-msg" name="msg" rows="4"></textarea>
+      </div>
+      <button class="btn" type="submit">Open the email <span class="sr">in your mail app</span></button>
+      <p class="caption" style="margin-top:16px">This prepares an email to <strong data-to>contact@q-leap.eu</strong> in your own mail app. Nothing is sent or stored by this page. No mail app? Copy the address on the right.</p>
+    </form>
+
+    <div style="grid-column:9/13">
+      <p class="lbl">Direct</p>
+      <ul class="rows" style="border-top-width:1px">
+        <li class="row" style="grid-template-columns:1fr;padding:20px 0"><span class="muted" style="font-size:var(--fs-xs);letter-spacing:.12em;text-transform:uppercase;font-weight:700">Projects</span><span><a class="lnk" href="mailto:contact@q-leap.eu">contact@q-leap.eu</a><button class="copy-btn" type="button" data-copy="contact@q-leap.eu">Copy</button></span></li>
+        <li class="row" style="grid-template-columns:1fr;padding:20px 0"><span class="muted" style="font-size:var(--fs-xs);letter-spacing:.12em;text-transform:uppercase;font-weight:700">Training</span><span><a class="lnk" href="mailto:training@q-leap.eu">training@q-leap.eu</a><button class="copy-btn" type="button" data-copy="training@q-leap.eu">Copy</button></span></li>
+        <li class="row" style="grid-template-columns:1fr;padding:20px 0"><span class="muted" style="font-size:var(--fs-xs);letter-spacing:.12em;text-transform:uppercase;font-weight:700">Phone</span><a class="lnk" href="tel:+352202117">+352 20 21 17</a></li>
+        <li class="row" style="grid-template-columns:1fr;padding:20px 0"><span class="muted" style="font-size:var(--fs-xs);letter-spacing:.12em;text-transform:uppercase;font-weight:700">Office</span><span>10B rue des Mérovingiens<br>L-8070 Bertrange, Luxembourg</span><a class="lnk" href="https://www.openstreetmap.org/search?query=10B%20rue%20des%20M%C3%A9rovingiens%20Bertrange" rel="noopener">Open the map <span class="arw" aria-hidden="true"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="step soft" data-step="Then" data-line="you can prepare an email">
+  <div class="wrap grid"><div class="step-h"><span class="kw">Then</span><span class="idx">02 / 02</span></div>
+    <div style="grid-column:1/6">
+      <div class="media" data-mask style="aspect-ratio:4/5"><img src="/assets/img/qleap-bureaux.jpg" alt="A Q-Leap team member seen from behind, wearing a t-shirt that reads Don't panic, call Q-Leap, in the Bertrange office" loading="lazy" width="1000" height="667" style="object-position:30% 50%"></div>
+    </div>
+    <div style="grid-column:7/13;align-self:end">
+      <p class="lbl">Bertrange</p>
+      <h2 class="h2">Ten minutes from Luxembourg City.</h2>
+      <p class="lead" style="margin-top:24px">Our office hosts the classroom sessions, the Q-Bot workshop and the team. Come for a coffee before you sign anything.</p>
+    </div>
+  </div>
+</section>
