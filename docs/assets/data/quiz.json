@@ -1,0 +1,170 @@
+{
+  "reviewed": false,
+  "questions": [
+    {
+      "question": "Which best describes a test case?",
+      "options": [
+        "A sequence of actions for executing tests, also called a test script",
+        "Input values and expected results, with preconditions and postconditions, developed for a test condition",
+        "A system attribute specified in requirements",
+        "A system element or event that can be checked by test conditions"
+      ],
+      "answer": 1,
+      "explanation": "A test case specifies inputs, expected results and relevant conditions."
+    },
+    {
+      "question": "Which is a major objective of testing?",
+      "options": [
+        "Prevent defects",
+        "Validate the project schedule",
+        "Increase confidence in the development team",
+        "Make release decisions"
+      ],
+      "answer": 0,
+      "explanation": "Testing can prevent defects through early evaluation of work products."
+    },
+    {
+      "question": "Which is a failure of a car cruise control system?",
+      "options": [
+        "A developer forgot to rename variables",
+        "Unnecessary alarm code was included",
+        "The system stops maintaining speed when radio volume changes",
+        "The design incorrectly specifies miles per hour"
+      ],
+      "answer": 2,
+      "explanation": "A failure is observed behaviour that deviates from the expected behaviour."
+    },
+    {
+      "question": "Which is a defect rather than a root cause in a fitness tracker?",
+      "options": [
+        "A requirements author misunderstood training",
+        "A tester lacked state transition training",
+        "An incorrect GPS configuration variable causes occasional location problems",
+        "A designer lacked wearable experience"
+      ],
+      "answer": 2,
+      "explanation": "The incorrect configuration is a defect; the other options describe causes or circumstances."
+    },
+    {
+      "question": "More tests are performed on system areas with more defects than average. Which principle applies?",
+      "options": [
+        "Pesticide paradox",
+        "Testing is context dependent",
+        "Absence-of-errors fallacy",
+        "Defect clustering"
+      ],
+      "answer": 3,
+      "explanation": "Defects often cluster in a small number of components."
+    },
+    {
+      "question": "Match activities A test design, B implementation, C execution, D completion to tasks: 1 raise change requests for unresolved defects, 2 identify test data, 3 prioritise scripts and create data, 4 analyse anomalies and report defects.",
+      "options": [
+        "A-2, B-3, C-4, D-1",
+        "A-2, B-3, C-1, D-4",
+        "A-3, B-2, C-4, D-1",
+        "A-3, B-2, C-1, D-4"
+      ],
+      "answer": 0,
+      "explanation": "Design identifies data; implementation creates it; execution reports defects; completion handles unresolved defects."
+    },
+    {
+      "question": "What is a benefit of traceability between the test basis and test work products?",
+      "options": [
+        "Maintenance tests can be fully automated",
+        "One can determine whether a new test case increases requirements coverage",
+        "Managers can identify the testers who found the most important defects",
+        "Confirmation tests can target side effects of a change"
+      ],
+      "answer": 1,
+      "explanation": "Traceability supports assessment of coverage against the test basis."
+    },
+    {
+      "question": "Which quality is more likely to be associated with a tester than a developer?",
+      "options": [
+        "Relevant experience",
+        "Ability to see what might go wrong",
+        "Good communication",
+        "Attention to detail"
+      ],
+      "answer": 1,
+      "explanation": "A tester mindset includes curiosity and anticipating failures."
+    },
+    {
+      "question": "Consider: 1 each development activity should have a corresponding test activity; 2 testing should start once documents are final; 3 test design and implementation must start during development; 4 testing should start early. Which is correct?",
+      "options": [
+        "True: 1, 2; false: 3, 4",
+        "True: 2, 3; false: 1, 4",
+        "True: 1, 2, 4; false: 3",
+        "True: 1, 4; false: 2, 3"
+      ],
+      "answer": 3,
+      "explanation": "Testing starts early; a mandatory start for every implementation activity is too prescriptive."
+    },
+    {
+      "question": "Tests use interface specifications, seek communication errors and include functional and structural approaches. Which level is most likely?",
+      "options": [
+        "Component integration testing",
+        "Acceptance testing",
+        "System testing",
+        "Component testing"
+      ],
+      "answer": 0,
+      "explanation": "Integration testing focuses on interfaces and interactions between components."
+    },
+    {
+      "question": "Which statement about test types and levels is correct?",
+      "options": [
+        "White-box testing is limited to component and integration levels",
+        "Functional testing can occur at any level, but white-box only at component level",
+        "Functional, non-functional and white-box tests can occur at any test level",
+        "White-box testing is limited to component and integration levels, while other types occur at any level"
+      ],
+      "answer": 2,
+      "explanation": "Test types can be applied at different test levels."
+    },
+    {
+      "question": "How do confirmation and regression testing differ?",
+      "options": [
+        "Regression checks prior tests while confirmation checks side effects",
+        "Confirmation checks a defect fix; regression checks for adverse effects elsewhere",
+        "Regression checks side effects; confirmation checks all previous results are identical",
+        "Confirmation checks changes; regression reruns only failed tests"
+      ],
+      "answer": 1,
+      "explanation": "Confirmation checks a specific fix; regression looks for unintended consequences."
+    },
+    {
+      "question": "What is one use of impact analysis in maintenance?",
+      "options": [
+        "Deciding whether to make a fix based on potential consequences",
+        "Defining how data must be migrated",
+        "Deciding which hotfix has most user value",
+        "Determining the effectiveness of new maintenance tests"
+      ],
+      "answer": 0,
+      "explanation": "Impact analysis informs decisions by assessing consequences of a change."
+    },
+    {
+      "question": "Which correctly describes the value of static testing?",
+      "options": [
+        "Reviews increase both specification quality and development time",
+        "Static testing makes defects easier to remove later",
+        "Static analysis improves poor requirements and communication",
+        "Static analysis finds code defects that dynamic testing alone may miss"
+      ],
+      "answer": 3,
+      "explanation": "Static analysis can reveal defects without executing the code."
+    },
+    {
+      "question": "Which sequence best represents review activities?",
+      "options": [
+        "Initiation, reviewer selection, individual review, meeting, rework",
+        "Planning and preparation, general meeting, individual review, correction, reporting",
+        "Preparation, defect detection, meeting, rework, reporting",
+        "Planning, initiation, individual review, review meeting, correction and reporting"
+      ],
+      "answer": 3,
+      "explanation": "A review is planned and initiated, followed by individual review, communication and follow-up."
+    }
+  ]
+}

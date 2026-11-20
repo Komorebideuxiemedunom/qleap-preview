@@ -1,0 +1,112 @@
+[
+  {
+    "title": "CFTL / ISTQB® Certified Tester, Artificial Intelligence",
+    "slug": "cftl-istqb-certified-tester-artificial-intelligence",
+    "organisation": "ISTQB",
+    "level": "Other",
+    "duration_days": 4,
+    "price_eur_ex_vat": null,
+    "summary": "Discover our Certified Tester - Artificial Intelligence course, designed to help you master testing specific to Artificial Intelligence.",
+    "url": "https://q-leap.eu/en/trainings/cftl-istqb-certified-tester-artificial-intelligence/"
+  },
+  {
+    "title": "IQBBA Certified Business Analyst - Foundation Level",
+    "slug": "iqbba-certified-business-analyst-foundation-level",
+    "organisation": "IQBBA",
+    "level": "Foundation",
+    "duration_days": 3,
+    "price_eur_ex_vat": 1750,
+    "summary": "This training course explores all the tasks, knowledge, tools and techniques needed to identify and formalize business needs and propose innovative solutions.",
+    "url": "https://q-leap.eu/en/trainings/iqbba-certified-business-analyst-foundation-level/"
+  },
+  {
+    "title": "IREB Certified in Requirements Engineering - Foundation Level",
+    "slug": "ireb-certified-in-requirements-engineering-foundation-level",
+    "organisation": "IREB",
+    "level": "Foundation",
+    "duration_days": 3,
+    "price_eur_ex_vat": 1750,
+    "summary": "By the end of the course, participants will have mastered the fundamental principles of requirements engineering in line with IREB (International Requirements Engineering Board) standards.",
+    "url": "https://q-leap.eu/en/trainings/ireb-certified-in-requirements-engineering-foundation-level/"
+  },
+  {
+    "title": "ISTQB Certified Agile Tester - Foundation Level extension",
+    "slug": "istqb-certified-agile-tester-foundation-level-extension",
+    "organisation": "ISTQB",
+    "level": "Foundation",
+    "duration_days": 2,
+    "price_eur_ex_vat": 1250,
+    "summary": "The ISTQB agile tester certification course gives testers the knowledge they need to be part of a test team in an agile environment.",
+    "url": "https://q-leap.eu/en/trainings/istqb-certified-agile-tester-foundation-level-extension/"
+  },
+  {
+    "title": "ISTQB Certified Technical Test Analyst - Advanced Level",
+    "slug": "istqb-certified-technical-test-analyst-advanced-level",
+    "organisation": "ISTQB",
+    "level": "Advanced",
+    "duration_days": 3,
+    "price_eur_ex_vat": 1850,
+    "summary": "The role of the technical test analyst is to implement a number of techniques to analyze the internal structure of the system, and evaluate it in terms of performance, security and reliability.",
+    "url": "https://q-leap.eu/en/trainings/istqb-certified-technical-test-analyst-advanced-level/"
+  },
+  {
+    "title": "ISTQB Certified Test Analyst - Advanced Level",
+    "slug": "istqb-certified-test-analyst-advanced-level",
+    "organisation": "ISTQB",
+    "level": "Advanced",
+    "duration_days": 4,
+    "price_eur_ex_vat": 2100,
+    "summary": "The diversity of systems and of the businesses they serve makes application acceptance more complex.",
+    "url": "https://q-leap.eu/en/trainings/istqb-certified-test-analyst-advanced-level/"
+  },
+  {
+    "title": "ISTQB Certified Test Automation Engineer - Advanced level",
+    "slug": "istqb-certified-test-automation-engineer-advanced-level",
+    "organisation": "ISTQB",
+    "level": "Advanced",
+    "duration_days": 3,
+    "price_eur_ex_vat": 2450,
+    "summary": "This course will teach you how to implement test automation on any type of project, and the main tasks of the person in charge of designing, developing and maintaining test automation solutions.",
+    "url": "https://q-leap.eu/en/trainings/istqb-certified-test-automation-engineer-advanced-level/"
+  },
+  {
+    "title": "ISTQB Certified Test Manager - Advanced Level",
+    "slug": "istqb-certified-test-manager-advanced-level",
+    "organisation": "ISTQB",
+    "level": "Advanced",
+    "duration_days": 5,
+    "price_eur_ex_vat": 3000,
+    "summary": "The Certified Tester Advanced Level Test Manager qualification is for people who have reached an advanced stage in their software testing career, and for anyone who wants a better understanding of software testing, strategy, the organisation of test activities, team management and communication with stakeholders.",
+    "url": "https://q-leap.eu/en/trainings/istqb-certified-test-manager-advanced-level/"
+  },
+  {
+    "title": "ISTQB Certified Tester - Foundation Level",
+    "slug": "istqb-certified-tester-foundation-level",
+    "organisation": "ISTQB",
+    "level": "Foundation",
+    "duration_days": 3,
+    "price_eur_ex_vat": 1650,
+    "summary": "The ISTQB Foundation Level certification is intended for anyone involved in software testing projects.",
+    "url": "https://q-leap.eu/en/trainings/istqb-certified-tester-foundation-level/"
+  },
+  {
+    "title": "Testing with generative AI - ISTQB® certification course",
+    "slug": "testing-with-generative-ai-istqb-certification-course",
+    "organisation": "ISTQB",
+    "level": "Other",
+    "duration_days": 2,
+    "price_eur_ex_vat": 1800,
+    "summary": "Hands-on training.",
+    "url": "https://q-leap.eu/en/trainings/testing-with-generative-ai-istqb-certification-course/"
+  },
+  {
+    "title": "TMMi Certified Test Maturity Model Integration",
+    "slug": "tmmi-certified-test-maturity-model-integration",
+    "organisation": "TMMi",
+    "level": "Other",
+    "duration_days": 3,
+    "price_eur_ex_vat": 1850,
+    "summary": "This course will help you strengthen your test processes and achieve a fast return on investment.",
+    "url": "https://q-leap.eu/en/trainings/tmmi-certified-test-maturity-model-integration/"
+  }
+]

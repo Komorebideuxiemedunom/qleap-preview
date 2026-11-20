@@ -1,0 +1,292 @@
+<!--meta {"title": "Q-Leap | Software testing experts in Luxembourg", "desc": "Q-Leap tests software before your users do. Testing services, ISTQB accredited training and the Q-Bot and Q-Guard tools, from Bertrange, Luxembourg, since 2012.", "path": "", "nav": "home", "css": ["home.css"], "js": ["/assets/js/home.js"], "bodyClass": "home"} -->
+
+<!-- 1. HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Software quality experts · Luxembourg since 2012</p>
+      <h1 class="h1 line-in" id="hero-title"><span><span>We find the defect</span></span><span><span>before your</span></span><span><span>users do.</span></span></h1>
+      <p class="lead hero-lead" data-reveal style="--d:420ms">Q-Leap is a team of ISTQB certified testers in Bertrange. We test web, mobile and business applications, train testers, and build the tools we were missing.</p>
+    </div>
+    <div class="hero-q" aria-hidden="true">
+      {{svg:q:hero-q-svg}}
+    </div>
+  </div>
+  <div class="wrap">
+    <nav class="routes" aria-label="Where do you want to go?">
+      <a class="route" href="/testing/" data-reveal style="--d:520ms"><span class="num">01</span><span class="route-t">Have software tested</span><span class="route-s">Functional, accessibility, performance, UAT, UX, automation</span><span class="go" aria-hidden="true"></span></a>
+      <a class="route" href="/training/" data-reveal style="--d:600ms"><span class="num">02</span><span class="route-t">Get ISTQB certified</span><span class="route-s">Accredited courses, next dates and prices</span><span class="go" aria-hidden="true"></span></a>
+      <a class="route" href="/careers/" data-reveal style="--d:680ms"><span class="num">03</span><span class="route-t">Join the team</span><span class="route-s">Testers, leads, automation engineers</span><span class="go" aria-hidden="true"></span></a>
+    </nav>
+    <p class="proofbar" data-reveal style="--d:760ms"><span><b>ISTQB</b> accredited training provider</span><span><b>GASQ</b> official exam centre</span><span><b>25+</b> certified testers</span><span><b>Since 2012</b> in Bertrange</span></p>
+  </div>
+</section>
+
+<!-- 2. SCROLLYTELLING : une release, quatre étapes, trois défauts -->
+<section class="story dark" id="how-we-test" aria-labelledby="story-title">
+  <div class="wrap">
+    <div class="story-head">
+      <p class="eyebrow">How we test</p>
+      <h2 class="h2" id="story-title">Follow one release through our method. <span class="light">Your users will never meet these defects.</span></h2>
+      <p class="caption">Demo scenario on a fictional booking app. The method is ours, the app and the figures are illustrations. <a class="skipdemo" href="#svc-title">Skip the demo</a></p>
+    </div>
+  </div>
+  <div class="wrap story-grid">
+    <ol class="story-steps">
+      <li class="step" data-step="0">
+        <span class="step-n">01 · Needs analysis</span>
+        <h3 class="h3">Before a single test runs, we read what the release has to do.</h3>
+        <p>Specifications, user stories, regulations, the things everyone assumes. Three of them for this release:</p>
+        <ul class="reqs">
+          <li><b>R1</b> A booking can be completed with the keyboard alone.</li>
+          <li><b>R2</b> Search answers in under 2 seconds with 500 people online.</li>
+          <li><b>R3</b> One payment creates exactly one booking.</li>
+        </ul>
+      </li>
+      <li class="step" data-step="1">
+        <span class="step-n">02 · Planning</span>
+        <h3 class="h3">Each requirement becomes a test, with the risk written next to it.</h3>
+        <p>Accessibility, performance and functional checks go into one plan, ranked by what would hurt your users most.</p>
+        <ul class="reqs">
+          <li><b>TC-01</b> Keyboard path to Confirm. Accessibility, WCAG 2.1.1.</li>
+          <li><b>TC-02</b> Search at 500 concurrent users. Performance.</li>
+          <li><b>TC-03</b> Back button after payment. Functional.</li>
+        </ul>
+      </li>
+      <li class="step" data-step="2">
+        <span class="step-n">03 · Execution</span>
+        <h3 class="h3">Then we run them. By hand where judgement matters, automated where repetition does.</h3>
+        <ul class="reqs reqs--fail">
+          <li><b>TC-01 failed</b> Focus jumps from Seats to Terms. Confirm cannot be reached.</li>
+          <li><b>TC-02 failed</b> 4.8 s at the 95th percentile with 500 users.</li>
+          <li><b>TC-03 failed</b> Going back after payment books the seats twice.</li>
+        </ul>
+      </li>
+      <li class="step" data-step="3">
+        <span class="step-n">04 · Report</span>
+        <h3 class="h3">A defect is only useful if your developers can fix it on Monday.</h3>
+        <p>Each issue comes with what we expected, what we observed, how to reproduce it and what it costs your users. After the fix, we test again.</p>
+        <p class="step-end">Three defects found. Three fixed and re-tested. Release 4.2 goes live and nobody notices a thing. That is the job.</p>
+        <a class="link" href="/testing/">See our testing services <span class="arw" aria-hidden="true"></span></a>
+      </li>
+    </ol>
+
+    <div class="stage" aria-hidden="true">
+      <div class="stage-inner" data-stage>
+        <div class="canvas" data-canvas>
+          <!-- Rail des étapes -->
+          <div class="rail">
+            <span data-rail="0">Analysis</span><span data-rail="1">Planning</span><span data-rail="2">Execution</span><span data-rail="3">Report</span>
+            <i class="rail-mark" data-rail-mark></i>
+          </div>
+
+          <!-- Application fictive -->
+          <div class="win" data-win>
+            <div class="win-bar"><span>booking.example</span><span class="win-rc" data-rc>Release 4.2 · candidate</span></div>
+            <div class="win-body">
+              <p class="win-h">Book a seat</p>
+              <div class="fld" data-f="0"><span>Full name</span><b>Ana Weber</b></div>
+              <div class="fld" data-f="1"><span>Email</span><b>ana.weber@example.lu</b></div>
+              <div class="fld fld--half" data-f="2"><span>Travel date</span><b>12 Dec 2026</b></div>
+              <div class="fld fld--half" data-f="3"><span>Seats</span><b>2</b></div>
+              <div class="win-btn" data-f="4" data-confirm>Confirm booking<em data-nofocus>Not reachable by keyboard</em></div>
+              <div class="win-foot"><span data-f="5">Terms</span><span>Help</span></div>
+            </div>
+            <i class="focus" data-focus></i>
+            <!-- notes d'analyse -->
+            <span class="note" data-note="0" style="left:432px;top:252px">R1</span>
+            <span class="note" data-note="1" style="left:432px;top:96px">R2</span>
+            <span class="note" data-note="2" style="left:432px;top:448px">R3</span>
+            <!-- performance -->
+            <div class="perf" data-perf>
+              <p>TC-02 · search response time, p95</p>
+              <svg viewBox="0 0 480 222" class="perf-svg">
+                <line x1="0" y1="200" x2="480" y2="200" class="axis"/>
+                <line x1="0" y1="130" x2="480" y2="130" class="thr"/>
+                <text x="4" y="122" class="thr-t">2.0 s target</text>
+                <path d="M0 186 L80 182 L160 176 L240 166 L300 150 L360 118 L420 64 L470 26" class="curve" data-curve/>
+                <circle cx="470" cy="26" r="6" class="dot" data-dot/>
+                <text x="372" y="18" class="val" data-val>4.8 s</text>
+                <text x="0" y="218" class="ax-t">50 users</text>
+                <text x="480" y="218" class="ax-t" text-anchor="end">500 users</text>
+              </svg>
+            </div>
+            <!-- double réservation -->
+            <div class="toasts" data-toasts>
+              <div class="toast" data-toast="0">Booking A-1042 confirmed</div>
+              <div class="toast toast--dup" data-toast="1">Booking A-1043 confirmed<em>Same seats, paid twice</em></div>
+            </div>
+            <!-- tampon final -->
+            <div class="ship" data-ship><i></i><span>Ready for production</span></div>
+          </div>
+
+          <!-- Plan de test -->
+          <div class="plan" data-plan>
+            <p class="plan-h">Test plan · Release 4.2</p>
+            <ol>
+              <li data-tc="0"><b>TC-01</b><span>Keyboard path to Confirm</span><em data-st>Not run</em></li>
+              <li data-tc="1"><b>TC-02</b><span>Search at 500 users</span><em data-st>Not run</em></li>
+              <li data-tc="2"><b>TC-03</b><span>Back after payment</span><em data-st>Not run</em></li>
+            </ol>
+            <div class="plan-count"><span>Open defects</span><b data-count>0</b></div>
+          </div>
+
+          <!-- Fiches d'anomalie -->
+          <div class="issues" data-issues>
+            <article class="issue" data-issue="0"><header><b>A11Y-014</b><span>Major</span></header><p><i>Expected</i> Focus reaches Confirm after Seats.</p><p class="obs"><i>Observed</i> <s>Focus jumps to Terms.</s></p><p><i>Impact</i> Keyboard and screen reader users cannot book.</p><span class="fixed">Fixed · re-tested</span></article>
+            <article class="issue" data-issue="1"><header><b>PERF-007</b><span>Major</span></header><p><i>Expected</i> 2.0 s or less, p95, 500 users.</p><p class="obs"><i>Observed</i> <s>4.8 s.</s></p><p><i>Impact</i> Search times out on launch day.</p><span class="fixed">Fixed · re-tested</span></article>
+            <article class="issue" data-issue="2"><header><b>FUNC-031</b><span>Critical</span></header><p><i>Expected</i> One payment, one booking.</p><p class="obs"><i>Observed</i> <s>Back after payment books twice.</s></p><p><i>Impact</i> Customers charged twice ask for refunds.</p><span class="fixed">Fixed · re-tested</span></article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SERVICES -->
+<section class="section" aria-labelledby="svc-title">
+  <div class="wrap grid">
+    <div class="svc-head">
+      <p class="eyebrow">Testing services</p>
+      <h2 class="h2" id="svc-title">Pick the test that matches the risk.</h2>
+    </div>
+    <p class="lead svc-lead" data-reveal>We join your project as a dedicated tester or a whole team, on site or from our office, from the first specification to go-live.</p>
+  </div>
+  <div class="wrap">
+    <ul class="rows">
+      <li><a class="row" href="/testing/#functional" data-reveal><span class="num">01</span><h3>Functional testing</h3><p>The main features do what the specification says, checked by hand or by script.</p><span class="go" aria-hidden="true"></span></a></li>
+      <li><a class="row" href="/accessibility/" data-reveal><span class="num">02</span><h3>Accessibility</h3><p>Barriers found and explained against WCAG and the French RGAA, before an audit or a complaint finds them.</p><span class="go" aria-hidden="true"></span></a></li>
+      <li><a class="row" href="/testing/#performance" data-reveal><span class="num">03</span><h3>Performance</h3><p>Speed, stability and capacity under the load of a real launch day.</p><span class="go" aria-hidden="true"></span></a></li>
+      <li><a class="row" href="/testing/#automation" data-reveal><span class="num">04</span><h3>Test automation</h3><p>Regression suites that run every night, so people test what needs a human.</p><span class="go" aria-hidden="true"></span></a></li>
+      <li><a class="row" href="/testing/#uat" data-reveal><span class="num">05</span><h3>User acceptance (UAT)</h3><p>Your business users confirm the software meets the agreed requirements before production.</p><span class="go" aria-hidden="true"></span></a></li>
+      <li><a class="row" href="/testing/#ux" data-reveal><span class="num">06</span><h3>User experience</h3><p>Real users, observed on real tasks, to see where they hesitate and why.</p><span class="go" aria-hidden="true"></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4. MANIFESTE (affiche réelle du bureau) -->
+<section class="manifesto" aria-labelledby="mf-title">
+  <div class="wrap grid">
+    <figure class="mf-photo" data-parallax>
+      <div class="media" data-mask><img src="/assets/img/qleap-atelier.jpg" alt="Three Q-Leap consultants at the meeting table in Bertrange, in front of a roll-up banner that reads: if you think testing is expensive, try not testing" width="768" height="960" loading="lazy"></div>
+      <figcaption class="caption">Meeting room, Bertrange.</figcaption>
+    </figure>
+    <div class="mf-copy">
+      <p class="eyebrow">What we believe</p>
+      <h2 class="mf-quote" id="mf-title" data-words>If you think testing is expensive, try not testing.</h2>
+      <p class="lead">A defect found in a specification costs a conversation. The same defect found by your customers costs a weekend of hotfixes and some of their trust.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PREUVES -->
+<section class="section soft" aria-labelledby="proof-title">
+  <div class="wrap">
+    <p class="eyebrow">Facts you can check</p>
+    <h2 class="h2 proof-title" id="proof-title">Facts we can back up.</h2>
+    <div class="facts">
+      <div class="fact" data-reveal><b>2012</b><span>Testing software in Luxembourg since</span></div>
+      <div class="fact" data-reveal style="--d:80ms"><b>25+</b><span>Testers, leads and test managers</span></div>
+      <div class="fact" data-reveal style="--d:160ms"><b>100%</b><span>Of our testers hold the ISTQB certification</span></div>
+      <div class="fact" data-reveal style="--d:240ms"><b>8th</b><span data-until="2026-11-26" data-after="Edition of the Luxembourg Software Testing Event, held in November 2026">Edition of the Luxembourg Software Testing Event, 26 November 2026</span></div>
+    </div>
+    <div class="accred">
+      <p data-reveal><b>ISTQB accredited</b> training provider</p>
+      <p data-reveal style="--d:80ms"><b>GASQ</b> official exam centre</p>
+      <p data-reveal style="--d:160ms"><img src="/assets/img/made-in-luxembourg.png" alt="" width="40" height="40"><b>Q-Bot</b> Made in Luxembourg</p>
+    </div>
+    <div class="refs">
+      <p class="eyebrow">Recent work</p>
+      <ul class="rows">
+        <li><a class="row" href="/references/#alac" data-reveal><span class="num">UX</span><h3>Online ticketing</h3><p>User experience tests on a public online ticketing platform for ALAC.</p><span class="go" aria-hidden="true"></span></a></li>
+        <li><a class="row" href="/references/#post" data-reveal><span class="num">A11Y</span><h3>Accessibility compliance</h3><p>Accessibility testing for POST Group digital services.</p><span class="go" aria-hidden="true"></span></a></li>
+      </ul>
+      <a class="link refs-all" href="/references/">All references <span class="arw" aria-hidden="true"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PRODUITS -->
+<section aria-labelledby="prod-title" class="products">
+  <div class="wrap prod-intro">
+    <p class="eyebrow">Built by testers</p>
+    <h2 class="h2" id="prod-title">Two tools we built because we needed them first.</h2>
+  </div>
+  <article class="prod prod--bot" aria-labelledby="bot-t">
+    <div class="copy">
+      {{svg:qbot:plogo:Q-BOT}}
+      <div>
+        <p class="eyebrow eyebrow--bot" style="color:#c8f4f0">Hardware · 2FA</p>
+        <h3 class="h2" id="bot-t">The last manual step in your tests was the phone.</h3>
+        <p style="margin-top:20px">Q-Bot is a small box that validates two-factor authentication on a real Android smartphone, triggered by your test chain with one HTTP call. LuxTrust Mobile, Microsoft and Google Authenticator, itsme. Designed and built in Luxembourg.</p>
+      </div>
+      <a class="btn" href="https://q-bot.eu" rel="noopener">Discover Q-Bot <span class="sr">on q-bot.eu</span></a>
+    </div>
+    <div class="media" data-mask><img src="/assets/img/qbot-photo-poste.webp" alt="The Q-Bot box with a smartphone docked, next to a monitor showing the Q-Bot interface" width="1400" height="788" loading="lazy" style="object-position:30% 50%"></div>
+  </article>
+  <article class="prod prod--guard" aria-labelledby="guard-t">
+    <div class="copy">
+      {{svg:qguard:plogo:Q-GUARD}}
+      <div>
+        <p class="eyebrow " style="color:#e4e1ff">Software · test generation</p>
+        <h3 class="h2" id="guard-t">Your users already wrote your next test cases.</h3>
+        <p style="margin-top:20px">Q-Guard watches how people really use a web application, finds the journeys they repeat and exports them as Selenium, Robot Framework or Playwright scripts. Installed on your own servers.</p>
+      </div>
+      <a class="btn" href="https://q-guard.app" rel="noopener">Discover Q-Guard <span class="sr">on q-guard.app</span></a>
+    </div>
+    <div class="media guard-media" data-video>
+      <video data-autoplay muted loop playsinline preload="none" poster="/assets/video/qguard-motion-poster.jpg" width="2112" height="1160">
+        <source data-src="/assets/video/qguard-motion.webm" type="video/webm">
+        <source data-src="/assets/video/qguard-motion.mp4" type="video/mp4">
+      </video>
+      <button class="vid-toggle" type="button" data-video-toggle>Pause video</button>
+    </div>
+  </article>
+</section>
+
+<!-- 8. COMMUNAUTÉ + ÉQUIPE -->
+<section class="section section--flush" aria-labelledby="team-title">
+  <div class="wrap grid team">
+    <div class="team-a" data-parallax data-speed="-0.06">
+      <div class="media" data-mask style="aspect-ratio:4/5"><img src="/assets/img/qleap-salon-stand.jpg" alt="A Q-Leap team member smiling at a trade fair stand with a Q-Bot demonstrator" width="768" height="960" loading="lazy"></div>
+    </div>
+    <div class="team-copy">
+      <p class="eyebrow">Community</p>
+      <h2 class="h2" id="team-title">We also get Luxembourg's testers in one room.</h2>
+      <p class="lead" style="margin-top:24px">The <span data-until="2026-11-26" data-after="Luxembourg Software Testing Event, held for the 8th time in November 2026">Luxembourg Software Testing Event, whose 8th edition takes place on 26 November 2026</span>, plus meetups and lunch and learns where testers compare notes on tools and methods.</p>
+      <a class="link" href="/events/">Events and LSTE <span class="arw" aria-hidden="true"></span></a>
+      <hr class="rule">
+      <p class="eyebrow">Careers</p>
+      <p class="h4">Open positions for test consultants and analysts, from junior to senior.</p>
+      <a class="link" href="/careers/">Open positions <span class="arw" aria-hidden="true"></span></a>
+    </div>
+    <div class="team-b" data-parallax data-speed="0.08">
+      <div class="media" data-mask style="aspect-ratio:3/4"><img src="/assets/img/qleap-equipe-bureau.jpg" alt="Two Q-Leap colleagues standing in the Bertrange office" width="768" height="960" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FORMATION -->
+<section class="section train-last" aria-labelledby="train-title">
+  <div class="wrap grid">
+    <div class="train-head">
+      <p class="eyebrow">Training</p>
+      <h2 class="h2" id="train-title">Get certified by people who test for a living.</h2>
+      <p class="lead" style="margin-top:24px">Accredited ISTQB courses from Foundation to Advanced, plus Agile, AI, requirements and business analysis. The exam is included on most ISTQB courses.</p>
+      <div class="train-ctas">
+        <a class="btn" href="/training/#sessions">All dates and prices</a>
+        <a class="link" href="/training/istqb-quiz/">Try the ISTQB quiz <span class="arw" aria-hidden="true"></span></a>
+      </div>
+    </div>
+    <div class="train-list">
+      <table class="table" aria-describedby="train-title">
+        <thead><tr><th scope="col">Next sessions</th><th scope="col">Dates</th><th scope="col">Price excl. VAT</th></tr></thead>
+        <tbody data-sessions>
+          <tr><td colspan="3">Next dates and prices: <a href="/training/#sessions">training calendar</a> or <a href="mailto:training@q-leap.eu">training@q-leap.eu</a></td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Dates that have passed disappear on their own. Group or in-house session? <a href="mailto:training@q-leap.eu">training@q-leap.eu</a></p>
+    </div>
+  </div>
+</section>
+

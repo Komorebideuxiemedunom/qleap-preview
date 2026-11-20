@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Testing with generative AI - ISTQB® certification course",
+    "slug": "testing-with-generative-ai-istqb-certification-course",
+    "start": "2026-09-28",
+    "end": "2026-09-29",
+    "price_eur_ex_vat": 1800,
+    "format": null,
+    "language": null
+  },
+  {
+    "title": "ISTQB Certified Tester - Foundation Level",
+    "slug": "istqb-certified-tester-foundation-level",
+    "start": "2026-09-29",
+    "end": "2026-10-01",
+    "price_eur_ex_vat": 1650,
+    "format": null,
+    "language": null
+  },
+  {
+    "title": "Testing with generative AI - ISTQB® certification course",
+    "slug": "testing-with-generative-ai-istqb-certification-course",
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "price_eur_ex_vat": 1800,
+    "format": null,
+    "language": null
+  },
+  {
+    "title": "Testing with generative AI - ISTQB® certification course",
+    "slug": "testing-with-generative-ai-istqb-certification-course",
+    "start": "2026-11-19",
+    "end": "2026-11-20",
+    "price_eur_ex_vat": 1800,
+    "format": "Live virtual classroom or onsite",
+    "language": "French"
+  },
+  {
+    "title": "Testing with generative AI - ISTQB® certification course",
+    "slug": "testing-with-generative-ai-istqb-certification-course",
+    "start": "2026-12-07",
+    "end": "2026-12-08",
+    "price_eur_ex_vat": 1800,
+    "format": "Live virtual classroom or onsite",
+    "language": "French"
+  },
+  {
+    "title": "ISTQB Certified Tester - Foundation Level",
+    "slug": "istqb-certified-tester-foundation-level",
+    "start": "2026-12-08",
+    "end": "2026-12-10",
+    "price_eur_ex_vat": 1650,
+    "format": "Live virtual classroom or onsite",
+    "language": null
+  }
+]
